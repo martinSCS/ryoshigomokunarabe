@@ -116,9 +116,11 @@ export default function GoBoard() {
     function handleClick(x, y) {
         if (!observing) {
             const nextArray = boardArray.map(row => [...row]);
-            nextArray[x][y] = stones[nextStone];
-            setBoardArray(nextArray);
-            setNextStone((nextStone + 1) % 4);
+            if (nextArray[x][y] === null) {
+                nextArray[x][y] = stones[nextStone];
+                setBoardArray(nextArray);
+                setNextStone((nextStone + 1) % 4);
+            }
         }
     }
 
