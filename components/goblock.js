@@ -171,6 +171,7 @@ export default function GoBoard() {
             </div>
             <div>
                 {res === 0 ? '未分胜负' : (res === 1 ? '黑胜' : '白胜')}
+                {res !== 0 && <button style={{border: '1px solid'}} onClick={() => {setBoardArray(initialBoard); setObserving(false); setNextStone(0)}}>重置游戏</button>}
             </div>
         </>
     );
